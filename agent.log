@@ -1,0 +1,51 @@
+2015-06-30T23:33:31Z FATAL 918 Thread[DpingAgentServer][core.Timer]: ConnectionClosed
+	stack traceback:
+		[C]: in function 'error'
+		app\dtk\agent_server.lua:100: in function 'request'
+		app\dtk\agent_server.lua:247: in function <app\dtk\agent_server.lua:246>
+		[C]: in function 'xpcall'
+		app\core\timer.lua:36: in function <app\core\timer.lua:33>
+		[C]: in function 'xpcall'
+		app\core\thread.lua:159: in function <app\core\thread.lua:158>
+2015-06-30T23:37:34Z INFO 918 Thread[Dump][dtk.agent]: ThreadDump: [Thread[core.Signal: 0x4018d6d0:sigquit]]	running	UNKNOWN
+	stack traceback:
+		app\core\thread.lua:337: in function 'dump'
+		app\dtk\agent.lua:208: in function '_on_signal'
+		app\core\signal.lua:33: in function <app\core\signal.lua:32>
+		[C]: in function 'xpcall'
+		app\core\thread.lua:159: in function <app\core\thread.lua:158>
+	[Thread[PollAppUpdate]]	suspended	Resume[core.tcp: 0x41a01f98:read(timeout=60000)]
+	stack traceback:
+		[C]: in function 'yield'
+		app\core\thread.lua:140: in function <app\core\thread.lua:138>
+		[C]: in function 'pcall'
+		app\core\stream.lua:112: in function <app\core\stream.lua:97>
+		[C]: in function 'xpcall'
+		app\core\thread.lua:271: in function 'read'
+		app\core\tls.lua:136: in function 'read_into_buffer'
+		app\core\tls.lua:162: in function 'do_ssl_task'
+		app\core\tls.lua:176: in function 'maybe_handshake'
+		app\core\tls.lua:102: in function 'write'
+		app\core\http.lua:132: in function <app\core\http.lua:122>
+		app\core\http.lua:114: in function 'write'
+		...
+		app\core\rest.lua:43: in function 'run'
+		app\service\app_launcher.lua:70: in function 'get_app_update'
+		app\dtk\deployment_manager.lua:79: in function 'get_app_updates'
+		app\dtk\deployment_manager.lua:57: in function 'reset'
+		app\dtk\agent.lua:183: in function 'app_update'
+		app\dtk\agent_poller.lua:64: in function <app\dtk\agent_poller.lua:62>
+		[C]: in function 'xpcall'
+		app\core\timer.lua:36: in function <app\core\timer.lua:33>
+		[C]: in function 'xpcall'
+		app\core\thread.lua:159: in function <app\core\thread.lua:158>
+	[Thread[launcher]]	normal	UNKNOWN
+	stack traceback:
+		[C]: in function 'resume'
+		app\core\thread.lua:195: in function 'start'
+		app\core\thread.lua:67: in function <app\core\thread.lua:55>
+		[C]: in function 'pcall'
+		app\core\thread.lua:278: in function 'dispatch'
+		app\core\signal.lua:18: in function <app\core\signal.lua:17>
+		[C]: in function 'run'
+		app\main.lua:147: in main chunk

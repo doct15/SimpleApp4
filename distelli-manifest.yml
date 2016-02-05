@@ -1,0 +1,649 @@
+bmcgehee/SimpleApp4:
+
+  Env:
+    - EXAMPLE: '"not overridden!!!"'
+    - EXAMPLE2: '"not overridden!!!"'
+    - PATH: "$PATH:/usr/local/foo:/usr/local/bar"
+    - WAIT_TIME: "1"
+    
+  PkgInclude:
+    - application.sh
+    #- app.tgz
+    - logstash.repo
+    #- 'sr/'
+      
+  PkgExclude:
+    - '*.yml'
+    #- 'sr/*.raw/'
+    
+  InstallTemplates:
+    - logstash.repo
+    - logstash-indexer.conf
+     
+  CommitData:
+    - RepoType: Git
+    - RepoPath: .
+
+  PreBuild:
+    - echo "PreBuild"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch prebuild.$DATE
+
+
+  Build:
+    - echo "Build"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch build.$DATE
+
+  PreRelease:
+    - echo "PreRelease"
+    #- touch release_timestamp.file
+    #- tar -czvf app.tgz *
+    #- lsb_release -a
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch prerelease.$DATE
+
+  AfterBuildSuccess:
+    - echo "AfterBuildSuccess"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch afterbuildsuccess.$DATE
+      
+    - echo "EC2_ACCESS $EC2_ACCESS"
+    - echo "EC2_KEY $EC2_KEY"
+    - which ec2-run-instances  
+    - ec2-run-instances ami-d05e75b8 -t t2.micro -z us-east-1b -s subnet-0255512a -g sg-329fe257 -O "$EC2_ACCESS" -W "$EC2_KEY" -k BM4-Key -n 1 -f userdata1
+
+  AfterBuildFailure:
+    - echo "AfterBuildFailure"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch afterbuildfailure.$DATE
+
+  ReleaseNotesCmd:
+    - echo "ReleaseNotesCmd"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch releasenotescmd.$DATE
+   
+  PreInstall:
+    - echo "PreInstall"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch preinstall.$DATE
+    #- echo -n "Waiting."
+    #- for i in `seq 1 10` ;
+    #- do
+    #-   sleep $WAIT_TIME
+    #-   echo -n "."
+    #- done
+    
+  #Install:
+  #  - echo "Install"
+  #  - DATE=$(date +"%Y%m%d%H%M%Si%N")
+  #  - touch install.$DATE
+  
+  PostInstall:
+    - echo "PostInstall"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch postinstall.$DATE
+    #- sudo mv -f logstash.repo /tmp/
+    #- echo -n "Waiting."
+    #- for i in `seq 1 10` ;
+    #- do
+    #-   sleep $WAIT_TIME
+    #-   echo -n "."
+    #- done
+    
+  PreRestart:
+    - echo "PreRestart"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch prerestart.$DATE
+    
+  PostRestart:
+    - echo "PostRestart"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch postrestart.$DATE
+    
+  PreStart:
+    - echo "PreStart"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch prestart.$DATE
+    #- echo -n "Waiting."
+    #- for i in `seq 1 10` ;
+    #- do
+    #-   sleep $WAIT_TIME
+    #-   echo -n "."
+    #- done
+    
+  #Start:
+  #  - echo "Start"
+  #  - echo "ENV $EXAMPLE"
+  #  - echo "ENV2 $EXAMPLE2"
+  #  - echo "APPNAME $DISTELLI_APPNAME"
+  #  - echo "APPHOME $DISTELLI_APPHOME"
+  #  - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+  #  - echo "RELVERSION $DISTELLI_RELVERSION"
+  #  - echo "RELREVISION $DISTELLI_RELREVISION"
+  #  - echo "RELBRANCH $DISTELLI_RELBRANCH"
+  #  - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+  #  - echo "RELEASE $DISTELLI_RELEASE"
+  #  - echo "MANIFEST $DISTELLI_MANIFEST"
+  #  - echo "BUILDNUM $DISTELLI_BUILDNUM"
+  #  - echo "BUILD $BUILD_VAR1"
+  #  - echo "ENV $DISTELLI_ENV"
+  #  - DATE=$(date +"%Y%m%d%H%M%S%N")
+  #  - touch start.$DATE
+  #  - /home/bmcgehee/application.sh
+  
+  PostStart:
+    - echo "PostStart"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch poststart.$DATE
+    #- echo -n "Waiting."
+    #- for i in `seq 1 10` ;
+    #- do
+    #-   sleep $WAIT_TIME
+    #-   echo -n "."
+    #- done
+    #- /home/bmcgehee/application.sh
+  
+  PreTerminate:
+    - echo "PreTerminate"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch preterminate.$DATE
+    
+  Terminate:
+    - echo "Terminate"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch terminate.$DATE
+    
+  PostTerminate:
+    - echo "PostTerminate"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch postterminate.$DATE
+    
+  Exec:
+    - echo "Exec"
+    #- 'trap echo "exit $? due to $previous_command" DEBUG'
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    
+    - echo "--Deploy Env Vars--"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "BUILDNUM $DISTELLI_BUILDNUM"
+    - echo "ENV $DISTELLI_ENV"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "--Deploy settable vars--"
+    - echo "INSTALLVIEW $DISTELLI_INSTALLVIEW"
+
+    - echo "--Docker Env Vars--"
+    - echo "DD_USERNAME $DISTELLI_DOCKER_USERNAME"
+    #- echo "DD_PW $DISTELLI_DOCKER_PW"
+    - echo "DD_EMAIL $DISTELLI_DOCKER_EMAIL"
+    - echo "DD_ENDPOINT $DISTELLI_DOCKER_ENDPOINt"
+    - echo "DD_REPO $DISTELLI_DOCKER_REPO"
+    - echo "DD_PATH $DISTELLI_DOCKER_PATH"
+    - echo ""
+    
+    - echo "--Build Env Vars--"
+    - echo "MANIFEST $DISTELLI_MANIFEST"
+    - echo "BUILD $BUILD_VAR1"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch exec.$DATE
+    - ./application.sh
+     
+     
+

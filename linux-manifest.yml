@@ -1,0 +1,120 @@
+bmcgehee/SimpleApp:
+
+  Env:
+    - EXAMPLE: '"not overridden!!!"'
+    
+  PkgInclude:
+    - application.sh
+  
+  PkgExclude:
+     - '*.yml'
+   
+  PreInstall:
+    - echo "PreInstall"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%Si%N")
+    - touch preinstall.$DATE
+  #Install:
+  #  - echo "Install"
+  #  - DATE=$(date +"%Y%m%d%H%M%Si%N")
+  #  - touch install.$DATE
+  PostInstall:
+    - echo "PostInstall"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch postinstall.$DATE
+    
+  PreRestart:
+    - echo "PreRestart"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%Si%N")
+    - touch prerestart.$DATE
+  PostRestart:
+    - echo "PostRestart"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch postrestart.$DATE
+  PreStart:
+    - echo "PreStart"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch prestart.$DATE
+  #Start:
+  #  - echo "Start"
+  #  - echo "ENV $EXAMPLE"
+  #  - echo "ENV2 $EXAMPLE2"
+  #  - echo "APPNAME $DISTELLI_APPNAME"
+  #  - echo "APPHOME $DISTELLI_APPHOME"
+  #  - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+  #  - DATE=$(date +"%Y%m%d%H%M%S%N")
+  #  - touch start.$DATE
+  #  - /home/bmcgehee/application.sh
+  PostStart:
+    - echo "PostStart"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch poststart.$DATE
+  #  - /home/bmcgehee/application.sh
+  PreTerminate:
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "PreTerminate"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch prestart.$DATE
+  Terminate:
+    - echo "Terminate"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch terminate.$DATE
+  PostTerminate:
+    - echo "PostTerminate"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch postterminate.$DATE
+  Exec:
+    - echo "Exec"
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - DATE=$(date +"%Y%m%d%H%M%S%N")
+    - touch exec.$DATE
+    - ./application.sh
+     
+

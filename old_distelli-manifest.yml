@@ -1,0 +1,66 @@
+bmcgehee/SimpleApp4:
+
+  Env:
+    - EXAMPLE: '"not overridden!!!"'
+    
+  PreRelease:
+    - echo "PreRelease"
+    - touch release_timestamp.file
+    - tar -czvf app.tgz *
+    - echo "ENV $EXAMPLE"
+    - echo "ENV2 $EXAMPLE2"
+    - echo "APPNAME $DISTELLI_APPNAME"
+    - echo "APPHOME $DISTELLI_APPHOME"
+    - echo "INSTALLHOME $DISTELLI_INSTALLHOME"
+    - echo "RELVERSION $DISTELLI_RELVERSION"
+    - echo "RELREVISION $DISTELLI_RELREVISION"
+    - echo "RELBRANCH $DISTELLI_RELBRANCH"
+    - echo "RELREPOTYPE $DISTELLI_RELREPOTYPE"
+    - echo "RELEASE $DISTELLI_RELEASE"
+    - DATE=$(date +"%Y%m%d%H%M%Si%N")
+    - touch prerelease.$DATE
+  Release:
+    - echo "Release"
+  PostRelease:
+    - echo "PostRelease"  
+  PkgInclude:
+    - application.sh
+  
+  PkgExclude:
+     - '*.yml'
+     
+  CommitData:
+     - RepoType: Git
+     - RepoPath: .
+   
+  PreInstall:
+    - echo "PreInstall"
+
+  PostInstall:
+    - echo "PostInstall"
+   
+  PreRestart:
+    - echo "PreRestart"
+
+  PostRestart:
+    - echo "PostRestart"
+
+  PreStart:
+    - echo "PreStart"
+
+  PostStart:
+    - echo "PostStart"
+
+  PreTerminate:
+    - echo "PreTerminate"
+
+  Terminate:
+    - echo "Terminate"
+
+  PostTerminate:
+    - echo "PostTerminate"
+
+  Exec:
+    - echo "Exec"
+    - ./application.sh
+
