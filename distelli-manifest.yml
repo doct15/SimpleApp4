@@ -168,8 +168,8 @@ bmcgehee/SimpleApp4:
     - DATE=$(date +"%Y%m%d%H%M%S%N")
     - touch afterbuildsuccess.$DATE
       
-    - echo "DISTELLI_ACCESS_TOKEN $DISTELLI_ACCESS_TOKEN"
-    - echo "DISTELLI_SECRET_KEY $DISTELLI_SECRET_KEY"
+    - echo "DISTELLI_TOKEN $DISTELLI_TOKEN"
+    - echo "DISTELLI_KEY $DISTELLI_KEY"
     - echo "EC2_ACCESS $EC2_ACCESS"
     - echo "EC2_KEY $EC2_KEY"
     - set

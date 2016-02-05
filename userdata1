@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "DistelliAccessToken: $DISTELLI_ACCESS_TOKEN" > /etc/distelli.yml
-echo "DistelliSecretKey: $DISTELLI_SECRET_KEY" >> /etc/distelli.yml
+echo "DistelliAccessToken: $DISTELLI_TOKEN" > /etc/distelli.yml
+echo "DistelliSecretKey: $DISTELLI_KEY" >> /etc/distelli.yml
 echo "Environments:" >> /etc/distelli.yml
 echo "  - simpleenv4" >> /etc/distelli.yml
 apt-get -y install wget
