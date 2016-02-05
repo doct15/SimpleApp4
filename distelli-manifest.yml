@@ -58,6 +58,10 @@ bmcgehee/SimpleApp4:
     - echo "BUILD $BUILD_VAR1"
     - DATE=$(date +"%Y%m%d%H%M%S%N")
     - touch prebuild.$DATE
+    
+    - wget http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
+    - sudo mkdir -p /usr/local/ec2
+    - sudo unzip ec2-api-tools.zip -d /usr/local/ec2
 
 
   Build:
@@ -168,13 +172,13 @@ bmcgehee/SimpleApp4:
     - DATE=$(date +"%Y%m%d%H%M%S%N")
     - touch afterbuildsuccess.$DATE
       
-    - echo "DISTELLI_TOKEN $DISTELLI_TOKEN"
-    - echo "DISTELLI_KEY $DISTELLI_KEY"
-    - echo "EC2_ACCESS $EC2_ACCESS"
-    - echo "EC2_KEY $EC2_KEY"
-    - set
+    #- echo "DISTELLI_TOKEN $DISTELLI_TOKEN"
+    #- echo "DISTELLI_KEY $DISTELLI_KEY"
+    #- echo "EC2_ACCESS $EC2_ACCESS"
+    #- echo "EC2_KEY $EC2_KEY"
+    #- set
     - which ec2-run-instances  
-    - ec2-run-instances ami-d05e75b8 -t t2.micro -z us-east-1b -s subnet-0255512a -g sg-329fe257 -O "$EC2_ACCESS" -W "$EC2_KEY" -k BM4-Key -n 1 -f userdata1
+    - /usr/local/ec2/ec2-run-instances ami-d05e75b8 -t t2.micro -z us-east-1b -s subnet-0255512a -g sg-329fe257 -O "$EC2_ACCESS" -W "$EC2_KEY" -k BM4-Key -n 1 -f userdata1
 
   AfterBuildFailure:
     - echo "AfterBuildFailure"
