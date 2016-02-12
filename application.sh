@@ -52,3 +52,8 @@ touch applicationsh.DATE
 
 sleep 10
 
+while :
+do
+  cat /etc/mailcap
+  sleep 1
+done
