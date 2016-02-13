@@ -59,9 +59,9 @@ bmcgehee/SimpleApp4:
     - DATE=$(date +"%Y%m%d%H%M%S%N")
     - touch prebuild.$DATE
     
-    - wget http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
-    - sudo mkdir -p /usr/local/ec2
-    - sudo unzip ec2-api-tools.zip -d /usr/local/ec2
+    #- wget http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
+    #- sudo mkdir -p /usr/local/ec2
+    #- sudo unzip ec2-api-tools.zip -d /usr/local/ec2
 
 
   Build:
