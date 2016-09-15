@@ -3,6 +3,7 @@ echo "DistelliAccessToken: $DISTELLI_TOKEN" > /etc/distelli.yml
 echo "DistelliSecretKey: $DISTELLI_KEY" >> /etc/distelli.yml
 echo "Environments:" >> /etc/distelli.yml
 echo "  - simpleenv4" >> /etc/distelli.yml
+apt-get -y update
 apt-get -y install wget
 wget -qO- https://www.distelli.com/download/client | sh
 /usr/local/bin/distelli agent install -readyml /etc/distelli.yml

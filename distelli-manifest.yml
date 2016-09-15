@@ -7,18 +7,20 @@ bmcgehee/SimpleApp4:
     - WAIT_TIME: "1"
     
   PkgInclude:
-    - application.sh
+    #- application.sh
     #- app.tgz
-    - logstash.repo
+    #- logstash.repo
     #- 'sr/'
+    - '*'
       
   PkgExclude:
-    - '*.yml'
+    #- '*.yml'
     #- 'sr/*.raw/'
     
   InstallTemplates:
     - logstash.repo
     - logstash-indexer.conf
+    - distelli_templates/staging.yml.template
      
   CommitData:
     - RepoType: Git
