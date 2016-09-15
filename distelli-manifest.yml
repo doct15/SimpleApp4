@@ -20,7 +20,7 @@ bmcgehee/SimpleApp4:
   InstallTemplates:
     - logstash.repo
     - logstash-indexer.conf
-    - distelli_templates/staging.yml.template
+    - [ "distelli_templates/staging.yml.template" ]
      
   CommitData:
     - RepoType: Git
