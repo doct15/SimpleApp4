@@ -5,7 +5,7 @@ bmcgehee/SimpleApp4:
     - EXAMPLE2: '"not overridden!!!"'
     - PATH: "$PATH:/usr/local/foo:/usr/local/bar"
     - WAIT_TIME: "1"
-    - CONFIG_FILE: "distelli_templates/staging.yml.template
+    - CONFIG_FILE: "distelli_templates/staging.yml.template"
     - DEST_CONFIG_FILE: "/distelli/test.config.yml"
     
   PkgInclude:
